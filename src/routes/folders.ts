@@ -1,6 +1,6 @@
 import {Router} from "express";
-import {getFoldersController, postFolderController} from "../controllers/folders.js";
-import {getAllWordsController, postWordController} from "../controllers/words.js";
+import {deleteFolderController, getFoldersController, postFolderController} from "../controllers/folders.js";
+import {deleteWordController, getAllWordsController, postWordController} from "../controllers/words.js";
 import ctrlWrapper from "../utils/ctrlWrapper.js";
 
     const router = Router()
@@ -8,4 +8,6 @@ import ctrlWrapper from "../utils/ctrlWrapper.js";
     router.get('/folders/:folderId',ctrlWrapper(getAllWordsController))
     router.post('/folders', ctrlWrapper(postFolderController))
     router.post('/folders/:folderID', ctrlWrapper(postWordController))
+    router.delete('/folders', ctrlWrapper(deleteFolderController))
+    router.delete('/folders/:folderId', ctrlWrapper(deleteWordController))
 export default router;
